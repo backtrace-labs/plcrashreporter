@@ -102,13 +102,13 @@
     if (systemInfo == NULL)
         return;
 
-    STAssertEquals(systemInfo->operating_system, PLCrashReportHostOperatingSystem, @"Unexpected OS value");
+    STAssertEquals((int)systemInfo->operating_system, PLCrashReportHostOperatingSystem, @"Unexpected OS value");
     
     STAssertNotNULL(systemInfo->os_version, @"No OS version encoded");
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated"
-    STAssertEquals(systemInfo->architecture, PLCrashReportHostArchitecture, @"Unexpected machine type");
+    STAssertEquals((int)systemInfo->architecture, PLCrashReportHostArchitecture, @"Unexpected machine type");
 #pragma clang diagnostic pop
 
     STAssertTrue(systemInfo->timestamp != 0, @"Timestamp uninitialized");

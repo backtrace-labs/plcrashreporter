@@ -839,7 +839,6 @@
 		C26022911642FE9B007FC29F /* PLCrashAsyncSymbolicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C260228F1642FE9B007FC29F /* PLCrashAsyncSymbolicationTests.m */; };
 		C26022921642FE9B007FC29F /* PLCrashAsyncSymbolicationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C260228F1642FE9B007FC29F /* PLCrashAsyncSymbolicationTests.m */; };
 		F213F04F2265B4FD005758A5 /* Tests in Resources */ = {isa = PBXBuildFile; fileRef = 05F3CD6C16DE7625007911FB /* Tests */; };
-		F213F0512265B4FD005758A5 /* CrashReporter.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CrashReporter.framework */; };
 		F213F0532265B4FD005758A5 /* XCTestRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05D0AE2D1B45EE0900296632 /* XCTestRunner.mm */; };
 		F213F0542265B4FD005758A5 /* AsyncPageAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0576DA861B3DC81B000BCA73 /* AsyncPageAllocator.cpp */; };
 		F213F0552265B4FD005758A5 /* SpinLockTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0576DA821B3DC59C000BCA73 /* SpinLockTests.mm */; };
@@ -946,8 +945,11 @@
 		F213F0BB2265B4FD005758A5 /* PLCrashAsyncLinkedListTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05A5E29317C056EB008A75E5 /* PLCrashAsyncLinkedListTests.mm */; };
 		F213F0BC2265B4FD005758A5 /* PLCrashUncaughtExceptionHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B929F017C9337D00B051E3 /* PLCrashUncaughtExceptionHandlerTests.m */; };
 		F213F0BD2265B4FD005758A5 /* PLCrashAsyncAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0576DAAF1B41CCE0000BCA73 /* PLCrashAsyncAllocator.cpp */; };
-		F213F0BF2265B4FD005758A5 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* CrashReporter.framework */; };
-		F213F0C02265B4FD005758A5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05654F760EFA5B54004283F5 /* CoreServices.framework */; };
+		F213F0C92265BBFE005758A5 /* PLCrashMachExceptionServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDFC83168950F600463E43 /* PLCrashMachExceptionServerTests.m */; };
+		F213F0CA2265BC05005758A5 /* PLCrashMachExceptionPortTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F068117B98A0A006D0EFA /* PLCrashMachExceptionPortTests.m */; };
+		F213F0CB2265BC14005758A5 /* PLCrashMachExceptionPortSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BEC41F17BAF95C0082CBFB /* PLCrashMachExceptionPortSetTests.m */; };
+		F213F0D52265BD14005758A5 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F046F4226239F900FA7A3F /* CrashReporter.framework */; };
+		F213F0D62265BD3B005758A5 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2927096226231A600E1048A /* CrashReporter.framework */; };
 		F292700A226231A600E1048A /* CrashReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 05CD31890EE93A90000FDE88 /* CrashReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F292700B226231A600E1048A /* PLCrashNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 05A2077215AB30C9001E3EFC /* PLCrashNamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F292700C226231A600E1048A /* AsyncAllocatable.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0576DA9F1B3E0856000BCA73 /* AsyncAllocatable.hpp */; };
@@ -1560,12 +1562,12 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = "CrashReporter-MacOSX";
 		};
-		F213F04D2265B4FD005758A5 /* PBXContainerItemProxy */ = {
+		F213F0D02265BC7A005758A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = "CrashReporter-MacOSX";
+			remoteGlobalIDString = F2F04667226239F900FA7A3F;
+			remoteInfo = "CrashReporter-tvOS";
 		};
 		F2927117226234E200E1048A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1605,7 +1607,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F213F0512265B4FD005758A5 /* CrashReporter.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1977,8 +1978,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F213F0BF2265B4FD005758A5 /* CrashReporter.framework in Frameworks */,
-				F213F0C02265B4FD005758A5 /* CoreServices.framework in Frameworks */,
+				F213F0D52265BD14005758A5 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,6 +1995,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F213F0D62265BD3B005758A5 /* CrashReporter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3399,7 +3400,7 @@
 				F213F0C22265B4FD005758A5 /* PBXBuildRule */,
 			);
 			dependencies = (
-				F213F04C2265B4FD005758A5 /* PBXTargetDependency */,
+				F213F0D12265BC7A005758A5 /* PBXTargetDependency */,
 			);
 			name = "Tests-tvOS";
 			productName = "$(TARGET_NAME)";
@@ -4529,6 +4530,7 @@
 				F29270A72262348F00E1048A /* PLCrashLogWriterTests.m in Sources */,
 				F29270A82262348F00E1048A /* PLCrashLogWriter.m in Sources */,
 				F29270A92262348F00E1048A /* PLCrashAsyncThread_current.S in Sources */,
+				F213F0CB2265BC14005758A5 /* PLCrashMachExceptionPortSetTests.m in Sources */,
 				F29270AA2262348F00E1048A /* shared_ptr_test.cpp in Sources */,
 				F29270AB2262348F00E1048A /* PLCrashAsyncThread_current.c in Sources */,
 				F29270AC2262348F00E1048A /* PLCrashFrameWalker.c in Sources */,
@@ -4566,6 +4568,7 @@
 				F29270CD2262348F00E1048A /* PLCrashFrameStackUnwind.c in Sources */,
 				F29270CE2262348F00E1048A /* PLCrashAsyncThread.c in Sources */,
 				F29270CF2262348F00E1048A /* PLCrashAsyncThreadTests.m in Sources */,
+				F213F0CA2265BC05005758A5 /* PLCrashMachExceptionPortTests.m in Sources */,
 				F29270D02262348F00E1048A /* PLCrashTestThread.m in Sources */,
 				F29270D12262348F00E1048A /* PLCrashAsyncThread_x86.c in Sources */,
 				F29270D22262348F00E1048A /* PLCrashAsyncThread_arm.c in Sources */,
@@ -4586,6 +4589,7 @@
 				F29270E12262348F00E1048A /* PLCrashAsyncDwarfCIETests.mm in Sources */,
 				F29270E22262348F00E1048A /* PLCrashAsyncDwarfFDETests.mm in Sources */,
 				F29270E32262348F00E1048A /* weak_ptr_test.cpp in Sources */,
+				F213F0C92265BBFE005758A5 /* PLCrashMachExceptionServerTests.m in Sources */,
 				F29270E42262348F00E1048A /* PLCrashAsyncDwarfCFAStateEvaluation.cpp in Sources */,
 				F29270E52262348F00E1048A /* PLCrashAsyncDwarfCFAStateEvaluationTests.mm in Sources */,
 				F29270E62262348F00E1048A /* PLCrashAsyncDwarfExpression.cpp in Sources */,
@@ -4772,10 +4776,10 @@
 			target = 8DC2EF4F0486A6940098B216 /* CrashReporter-MacOSX */;
 			targetProxy = 05F40CFC0EF7AC9D008050CF /* PBXContainerItemProxy */;
 		};
-		F213F04C2265B4FD005758A5 /* PBXTargetDependency */ = {
+		F213F0D12265BC7A005758A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* CrashReporter-MacOSX */;
-			targetProxy = F213F04D2265B4FD005758A5 /* PBXContainerItemProxy */;
+			target = F2F04667226239F900FA7A3F /* CrashReporter-tvOS */;
+			targetProxy = F213F0D02265BC7A005758A5 /* PBXContainerItemProxy */;
 		};
 		F2927118226234E200E1048A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5750,7 +5754,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				EFFECTIVE_PLATFORM_NAME = "-iOS";
@@ -5768,7 +5772,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s armv6 arm64 amr64e";
+				VALID_ARCHS = "armv7 armv7s arm64 amr64e";
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Werror",
@@ -5788,7 +5792,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -5805,7 +5809,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "armv7 armv7s armv6 arm64 amr64e";
+				VALID_ARCHS = "armv7 armv7s arm64 amr64e";
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Werror",

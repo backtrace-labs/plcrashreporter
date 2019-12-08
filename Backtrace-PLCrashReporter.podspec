@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
                           "Source/PLCrashMacros.h",
                           "Source/PLCrashFeatureConfig.h",
                           "Source/CrashReporter.h"
-                          "Dependencies/protobuf-c-1.3.2/include/google/**/*.h"
   s.preserve_paths = "Dependencies/**"
 
 
@@ -51,7 +50,7 @@ Pod::Spec.new do |s|
   s.prepare_command =
   <<-CMD
     cd "Resources" && "../Dependencies/protobuf-c-1.3.2/bin/protoc-c" --c_out="../Source" "crash_report.proto" && cd ..
-    find . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#include <google\\/protobuf-c\\/protobuf-c.h>/#include "..\\/Dependencies\\/protobuf-c-1.3.2\\/include\\/google\\/protobuf-c\\/protobuf-c.h"/g' {} \\;
+    find . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#include <protobuf-c\\/protobuf-c.h>/#include <protobuf-c.h>/g' {} \\;
     find . \\( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \\) -exec sed -i '' -e 's/#import "CrashReporter\\/CrashReporter.h"/#import "CrashReporter.h"/g' {} \\;
     SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
     mig -arch "i386" -header "Source/mach_exc_i386.h" -server /dev/null -user "Source/mach_exc_i386User.inc" "${SDKROOT}/usr/include/mach/mach_exc.defs"

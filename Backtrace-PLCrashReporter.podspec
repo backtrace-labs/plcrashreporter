@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
                           "Source/PLCrashMacros.h",
                           "Source/PLCrashFeatureConfig.h",
                           "Source/CrashReporter.h"
+                          "Dependencies/protobuf-c-1.3.2/include/google/**/*.h"
   s.preserve_paths = "Dependencies/**"
 
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd "Resources" && "../Dependencies/protobuf-c-1.3.2/bin/protoc-c" --c_out="../Source" "crash_report.proto" && cd ..
+cd Dependencies/protobuf-c &&  ./autogen.sh && ./configure && make && make install && cd ../..
+
+cd "Resources" && "protoc" --c_out="../Source" "crash_report.proto" && cd ..
     find . \( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \) -exec sed -i '' -e 's/#include <protobuf-c\/protobuf-c.h>/#include <protobuf-c.h>/g' {} \;
     find . \( -iname '*.h' -o -iname '*.hpp' -o -iname '*.c' -o -iname '*.cc' -o -iname '*.cpp' -o -iname '*.m' -o -iname '*.mm' \) -exec sed -i '' -e 's/#import "CrashReporter\/CrashReporter.h"/#import "CrashReporter.h"/g' {} \;
     SDKROOT=$(xcrun --sdk macosx --show-sdk-path)

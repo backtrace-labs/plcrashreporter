@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Plausible Labs Cooperative, Inc.' => 'contact@plausible.coop' }
 
-  s.ios.deployment_target = "10.0"
-  s.tvos.deployment_target = "10.0"
-  s.osx.deployment_target = "10.10"
+  s.ios.deployment_target =   "10.0"
+  s.tvos.deployment_target =  "10.0"
+  s.osx.deployment_target =   "10.10"
 
   s.source       = { :git => "https://github.com/backtrace-labs/plcrashreporter.git", :tag => "#{s.version}" }
 

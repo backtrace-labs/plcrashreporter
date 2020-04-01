@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/backtrace-labs/plcrashreporter.git", :tag => "#{s.version}" }
 
   s.source_files  = "Source/**/*.{h,hpp,c,cpp,m,mm,s}",
-                    "Dependencies/protobuf-c-1.3.2/src/*.{h,c}"
+                    "Dependencies/protobuf-c/protobuf-c/*.{h,c}"
   s.exclude_files = "**/*Tests*",
                     "**/*TestCase*",
                     "**/*test.*",
@@ -46,6 +46,4 @@ Pod::Spec.new do |s|
   s.requires_arc = false
 
   s.prefix_header_contents = "#import \"PLCrashNamespace.h\""
-
-  s.prepare_command = 'sh build.sh'
 end

@@ -46,4 +46,6 @@ Pod::Spec.new do |s|
   s.requires_arc = false
 
   s.prefix_header_contents = "#import \"PLCrashNamespace.h\""
+
+  s.prepare_command = 'sh build.sh'
 end

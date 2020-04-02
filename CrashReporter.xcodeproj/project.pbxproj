@@ -1255,6 +1255,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*.proto";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.pb-c.c",
@@ -1267,6 +1269,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*.proto";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.pb-c.c",
@@ -1377,6 +1381,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*.proto";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.pb-c.c",
@@ -1389,6 +1395,8 @@
 			compilerSpec = com.apple.compilers.proxy.script;
 			filePatterns = "*.proto";
 			fileType = pattern.proxy;
+			inputFiles = (
+			);
 			isEditable = 1;
 			outputFiles = (
 				"${DERIVED_FILES_DIR}/${CURRENT_ARCH}/${INPUT_FILE_BASE}.pb-c.c",
@@ -4949,65 +4957,6 @@
 			};
 			name = Debug;
 		};
-		809FFE981C4D626E00AE6234 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D7AD1C4D22D8005A8B4C /* CrashReporter-tvOS-Device */;
-			targetProxy = 809FFE971C4D626E00AE6234 /* PBXContainerItemProxy */;
-		};
-		809FFE9A1C4D626E00AE6234 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D81C1C4D22DA005A8B4C /* CrashReporter-tvOS-Simulator */;
-			targetProxy = 809FFE991C4D626E00AE6234 /* PBXContainerItemProxy */;
-		};
-		80A63BBB1C4D2B940073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D7AD1C4D22D8005A8B4C /* CrashReporter-tvOS-Device */;
-			targetProxy = 80A63BBA1C4D2B940073B7A3 /* PBXContainerItemProxy */;
-		};
-		80A63BBD1C4D2B9C0073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D81C1C4D22DA005A8B4C /* CrashReporter-tvOS-Simulator */;
-			targetProxy = 80A63BBC1C4D2B9C0073B7A3 /* PBXContainerItemProxy */;
-		};
-		80A63BBF1C4D2BD90073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D81C1C4D22DA005A8B4C /* CrashReporter-tvOS-Simulator */;
-			targetProxy = 80A63BBE1C4D2BD90073B7A3 /* PBXContainerItemProxy */;
-		};
-		80A63BC11C4D2BE20073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D7AD1C4D22D8005A8B4C /* CrashReporter-tvOS-Device */;
-			targetProxy = 80A63BC01C4D2BE20073B7A3 /* PBXContainerItemProxy */;
-		};
-		80A63BDA1C4D384A0073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D7AD1C4D22D8005A8B4C /* CrashReporter-tvOS-Device */;
-			targetProxy = 80A63BD91C4D384A0073B7A3 /* PBXContainerItemProxy */;
-		};
-		80A63BDC1C4D384A0073B7A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8064D81C1C4D22DA005A8B4C /* CrashReporter-tvOS-Simulator */;
-			targetProxy = 80A63BDB1C4D384A0073B7A3 /* PBXContainerItemProxy */;
-		};
-		C25664E5235737560088513E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C25664D123571D330088513E /* Documentation */;
-			targetProxy = C25664E4235737560088513E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		0502E45B12BD0D0000ACDCB5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = Tests;
-			};
-			name = Debug;
-		};
 		0502E45C12BD0D0000ACDCB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5770,7 +5719,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_SHADOW = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c/protobuf-c\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -5822,7 +5771,7 @@
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_SHADOW = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c/protobuf-c\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = (
 					"$(inherited)",

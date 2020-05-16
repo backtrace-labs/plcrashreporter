@@ -24,11 +24,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "Source/**/*.{h,hpp,c,cpp,m,mm,s}",
                     "Dependencies/protobuf-c/protobuf-c/*.{h,c}"
-  s.exclude_files = "**/*Tests*",
-                    "**/*TestCase*",
-                    "**/*test.*",
-                    "**/*_test_*",
-                    "**/*main.m"
+  s.exclude_files = "**/*main.m"
 
   s.public_header_files = "Source/PLCrashReport*.h",
                           "Source/PLCrashNamespace*.h",

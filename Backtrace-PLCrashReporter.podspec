@@ -25,11 +25,7 @@ Pod::Spec.new do |s|
   s.source_files  = "Source/**/*.{h,hpp,c,cpp,m,mm,s}",
                     "Dependencies/protobuf-c/protobuf-c/*.{h,c}"
   
-  s.public_header_files = "Source/PLCrashReport*.h",
-                          "Source/PLCrashNamespace*.h",
-                          "Source/PLCrashMacros.h",
-                          "Source/PLCrashFeatureConfig.h",
-                          "Source/CrashReporter.h"
+  s.public_header_files = "Source/include"
   s.preserve_paths = "Dependencies/**"
 
   s.pod_target_xcconfig = {

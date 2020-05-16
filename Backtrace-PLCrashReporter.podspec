@@ -39,5 +39,5 @@ Pod::Spec.new do |s|
   s.libraries = "c++"
   s.requires_arc = false
 
-  s.prefix_header_contents = "#import \"PLCrashNamespace.h\""
+  s.prefix_header_contents = '#import "PLCrashNamespace.h"'
 end

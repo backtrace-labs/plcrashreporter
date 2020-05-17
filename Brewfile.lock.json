@@ -1,0 +1,35 @@
+{
+  "entries": {
+    "brew": {
+      "xcodegen": {
+        "version": "2.15.1",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.15.1.catalina.bottle.tar.gz",
+              "sha256": "9dc6875065ddf5816c00312328f0f4f1c801ad11c8c40af7192d3068ec1edf27"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.15.1.mojave.bottle.tar.gz",
+              "sha256": "d6359a7e712f7a749184ad7f9285abaafdf1cc0187d01278645e46688f86bb8a"
+            }
+          }
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "catalina": {
+        "HOMEBREW_VERSION": "2.2.16-69-g9fcaa46",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "2688e195ecbed273bd67f14d642a353159c38cb8",
+        "CLT": "",
+        "Xcode": "11.4.1",
+        "macOS": "10.15.4"
+      }
+    }
+  }
+}

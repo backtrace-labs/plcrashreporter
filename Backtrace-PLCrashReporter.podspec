@@ -22,10 +22,10 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/backtrace-labs/plcrashreporter.git", :tag => "#{s.version}" }
 
-  s.source_files  = "Source/**/*.{h,hpp,c,cpp,m,mm,s}",
+  s.source_files  = "Sources/**/*.{h,hpp,c,cpp,m,mm,s}",
                     "Dependencies/protobuf-c/protobuf-c/*.{h,c}"
   
-  s.public_header_files = "Source/include"
+  s.public_header_files = "Sources/include"
   s.preserve_paths = "Dependencies/**"
 
   s.pod_target_xcconfig = {

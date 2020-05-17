@@ -45,11 +45,11 @@ targetTemplates:
       path: Resources/Info.plist
     platform: ${platform}
     sources: 
-      - path: Source
+      - path: Sources
         includes: 
           - include
         headerVisibility: public
-      - path: Source
+      - path: Sources
         exludes: 
           - include
         headerVisibility: project
@@ -60,7 +60,7 @@ targetTemplates:
     settings:
       base:
         HEADER_SEARCH_PATHS: "$(SRCROOT)/Dependencies/protobuf-c/protobuf-c"
-        GCC_PREFIX_HEADER: "$(SRCROOT)/Source/include/PLCrashNamespace.h"
+        GCC_PREFIX_HEADER: "$(SRCROOT)/Sources/include/PLCrashNamespace.h"
         PRODUCT_MODULE_NAME: "Backtrace_PLCrashReporter"
         PRODUCT_NAME: "Backtrace_PLCrashReporter"
         CLANG_CXX_LANGUAGE_STANDARD: "c++0x"
@@ -90,7 +90,7 @@ targetTemplates:
     settings:
       base:
         HEADER_SEARCH_PATHS: "$(SRCROOT)/Dependencies/protobuf-c/protobuf-c"
-        GCC_PREFIX_HEADER: "$(SRCROOT)/Source/include/PLCrashNamespace.h"
+        GCC_PREFIX_HEADER: "$(SRCROOT)/Sources/include/PLCrashNamespace.h"
         PRODUCT_MODULE_NAME: "Backtrace_PLCrashReporterTests"
         PRODUCT_NAME: "Backtrace_PLCrashReporterTests"
         CLANG_CXX_LANGUAGE_STANDARD: "c++0x"

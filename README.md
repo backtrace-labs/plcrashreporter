@@ -27,11 +27,10 @@ PLCrashReporter is a reliable open source library that provides an in-process li
 ### Prerequisites
 
 - A Mac running macOS compliant with Xcode requirements
-- Xcode 10.1 or above
-- Doxygen to generate the documentation. See [the official Doxygen repository](https://github.com/doxygen/doxygen) for more information or use [Homebrew](https://brew.sh) to install it.
-- GraphViz to generate the documentation. See [the official GraphViz website](https://www.graphviz.org/download/) for more information or use [Homebrew](https://brew.sh) to install it.
+- Xcode 10 or above
 
 ### Setup
+
 Setup script will make sure all required dependencies are installed, including: RubyGems, Homebrew packages, Git submodules, etc. The goal is to make sure all required dependencies are installed.
 Also, it is used to set up a project in an initial state. 
 
@@ -41,6 +40,12 @@ Also, it is used to set up a project in an initial state.
     ```bash
     sh scripts/setup.sh
     ```
+
+#### Third party tools
+- [Doxygen](https://github.com/doxygen/doxygen) to generate the documentation.
+- [GraphViz](https://www.graphviz.org/download/) to generate the documentation. 
+- [protobuf-c](https://github.com/protobuf-c/protobuf-c) to convert Protocol Buffer `.proto` files to C descriptor code.
+- [XcodeGen](https://github.com/yonaskolb/XcodeGen) to generate Xcode project.
 
 ### To validate pod
 CI build script will validate pod specifications. 

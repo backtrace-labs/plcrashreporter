@@ -44,7 +44,7 @@
 #import <mach-o/loader.h>
 #import <mach-o/dyld.h>
 
-#import "crash_report.pb-c.h"
+#import "PLCrashReport.pb-c.h"
 #import "PLCrashTestThread.h"
 
 #import "PLCrashSysctl.h"

@@ -37,6 +37,27 @@ targets:
       - CrashReporterTests
     templateAttributes:
       platform: tvOS
+
+settingGroups:
+  presets:
+    base:
+      HEADER_SEARCH_PATHS: "$(SRCROOT)/Dependencies/protobuf-c/protobuf-c"
+      GCC_PREFIX_HEADER: "$(SRCROOT)/Sources/include/PLCrashNamespace.h"
+      PRODUCT_MODULE_NAME: "Backtrace_PLCrashReporter"
+      PRODUCT_NAME: "Backtrace_PLCrashReporter"
+      CLANG_CXX_LANGUAGE_STANDARD: "c++0x"
+      CLANG_CXX_LIBRARY: "libc++"
+      PL_MIN_MACOSX_SDK: 101400
+      PROTOBUF_C_UNPACK_ERROR: PLCF_DEBUG
+      CLANG_ENABLE_OBJC_ARC: NO
+      SUPPORTS_MACCATALYST: NO
+    configs:
+      debug:
+        GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_DEBUG_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
+        PL_BUILD_CONFIG_FLAG: PLCF_DEBUG_BUILD
+      release:
+        GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_RELEASE_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
+        PL_BUILD_CONFIG_FLAG: PLCF_RELEASE_BUILD
       
 targetTemplates:
   CrashReporter:
@@ -58,23 +79,8 @@ targetTemplates:
           - protobuf-c.[ch]
         headerVisibility: project
     settings:
-      base:
-        HEADER_SEARCH_PATHS: "$(SRCROOT)/Dependencies/protobuf-c/protobuf-c"
-        GCC_PREFIX_HEADER: "$(SRCROOT)/Sources/include/PLCrashNamespace.h"
-        PRODUCT_MODULE_NAME: "Backtrace_PLCrashReporter"
-        PRODUCT_NAME: "Backtrace_PLCrashReporter"
-        CLANG_CXX_LANGUAGE_STANDARD: "c++0x"
-        CLANG_CXX_LIBRARY: "libc++"
-        PL_MIN_MACOSX_SDK: 101400
-        PROTOBUF_C_UNPACK_ERROR: PLCF_DEBUG
-        CLANG_ENABLE_OBJC_ARC: NO
-      configs:
-        debug:
-          GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_DEBUG_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
-          PL_BUILD_CONFIG_FLAG: PLCF_DEBUG_BUILD
-        release:
-          GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_RELEASE_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
-          PL_BUILD_CONFIG_FLAG: PLCF_RELEASE_BUILD
+      groups:
+        - presets
   
   CrashReporterTests:
     type: bundle.unit-test
@@ -88,21 +94,6 @@ targetTemplates:
     dependencies:
       - target: CrashReporter-${platform}
     settings:
-      base:
-        HEADER_SEARCH_PATHS: "$(SRCROOT)/Dependencies/protobuf-c/protobuf-c"
-        GCC_PREFIX_HEADER: "$(SRCROOT)/Sources/include/PLCrashNamespace.h"
-        PRODUCT_MODULE_NAME: "Backtrace_PLCrashReporterTests"
-        PRODUCT_NAME: "Backtrace_PLCrashReporterTests"
-        CLANG_CXX_LANGUAGE_STANDARD: "c++0x"
-        CLANG_CXX_LIBRARY: "libc++"
-        PL_MIN_MACOSX_SDK: 101400
-        PROTOBUF_C_UNPACK_ERROR: PLCF_DEBUG
-        CLANG_ENABLE_OBJC_ARC: NO
-      configs:
-        debug:
-          GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_DEBUG_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
-          PL_BUILD_CONFIG_FLAG: PLCF_DEBUG_BUILD
-        release:
-          GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "PLCR_PRIVATE", "PLCF_RELEASE_BUILD", "PLCF_MIN_MACOSX_SDK=$(PL_MIN_MACOSX_SDK)"]
-          PL_BUILD_CONFIG_FLAG: PLCF_RELEASE_BUILD
+      groups:
+        - presets
         

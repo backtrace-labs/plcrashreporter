@@ -22,6 +22,18 @@ PLCrashReporter is a reliable open source library that provides an in-process li
 - Xcode 10 or above.
 - Minimum supported platforms: iOS 10, macOS 10.10, tvOS 10.
 
+## Installation
+
+### via CocoaPods
+
+To use [CocoaPods](https://cocoapods.org) just add this to your Podfile:
+
+```ruby
+pod 'Backtrace-PLCrashReporter'
+```
+
+**Note:** It is required to specify `use_frameworks!` in your Podfile.
+
 ## Building
 
 ### Prerequisites

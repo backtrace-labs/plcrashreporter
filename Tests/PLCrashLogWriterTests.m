@@ -32,6 +32,7 @@
 #import "PLCrashFrameWalker.h"
 #import "PLCrashAsyncImageList.h"
 #import "PLCrashReport.h"
+#import "PLCrashReport.pb-c.h"
 
 #import "PLCrashProcessInfo.h"
 #import "PLCrashHostInfo.h"
@@ -44,15 +45,13 @@
 #import <mach-o/loader.h>
 #import <mach-o/dyld.h>
 
-#import "PLCrashReport.pb-c.h"
 #import "PLCrashTestThread.h"
-
 #import "PLCrashSysctl.h"
 
 @interface PLCrashLogWriterTests : SenTestCase {
 @private
     /* Path to crash log */
-    NSString *_logPath;
+    __strong NSString *_logPath;
     
     /* Test thread */
     plcrash_test_thread_t _thr_args;
@@ -65,7 +64,7 @@
 
 - (void) setUp {
     /* Create a temporary log path */
-    _logPath = [[NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]] retain];
+    _logPath = [NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]];
     
     /* Create the test thread */
     plcrash_test_thread_spawn(&_thr_args);
@@ -78,7 +77,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath: _logPath]) {
         STAssertTrue([[NSFileManager defaultManager] removeItemAtPath: _logPath error: &error], @"Could not remove log file");
     }
-    [_logPath release];
+    _logPath = nil;
 
     /* Stop the test thread */
     plcrash_test_thread_stop(&_thr_args);
@@ -152,7 +151,7 @@
     STAssertNotNil(processInfo, @"Could not retrieve process info");
     STAssertNotNil(processInfo.processName, @"Could not retrieve parent process name");
 
-    NSString *parsedProcessName = [[[NSString alloc] initWithCString: procInfo->process_name encoding: NSUTF8StringEncoding] autorelease];
+    NSString *parsedProcessName = [[NSString alloc] initWithCString: procInfo->process_name encoding: NSUTF8StringEncoding];
     STAssertNotNil(parsedProcessName, @"Process name contains invalid UTF-8");
     STAssertEqualStrings(parsedProcessName, processInfo.processName, @"Incorrect process name");
 
@@ -171,7 +170,7 @@
     
     /* Parent process; fetching the process info is expected to fail on non-OSX systems (e.g. iOS 9+ and tvOS) due to
      * new sandbox constraints */
-    PLCrashProcessInfo *parentProcessInfo = [[[PLCrashProcessInfo alloc] initWithProcessID: getppid()] autorelease];
+    PLCrashProcessInfo *parentProcessInfo = [[PLCrashProcessInfo alloc] initWithProcessID: getppid()];
 
     if (PLCrashReportHostOperatingSystem == PLCrashReportOperatingSystemAppleTVOS ||
         (PLCrashReportHostOperatingSystem == PLCrashReportOperatingSystemiPhoneOS &&
@@ -185,7 +184,7 @@
         STAssertNotNil(parentProcessInfo.processName, @"Could not retrieve parent process name");
         STAssertNotNULL(procInfo->parent_process_name, @"Crash log writer could not retrieve parent process name");
         
-        NSString *parsedParentProcessName = [[[NSString alloc] initWithCString: procInfo->parent_process_name encoding: NSUTF8StringEncoding] autorelease];
+        NSString *parsedParentProcessName = [[NSString alloc] initWithCString: procInfo->parent_process_name encoding: NSUTF8StringEncoding];
         STAssertNotNil(parsedParentProcessName, @"Process name contains invalid UTF-8");
         STAssertEqualStrings(parsedParentProcessName, parentProcessInfo.processName, @"Incorrect process name");
 
@@ -298,7 +297,7 @@
     plcrash_log_writer_t writer;
 
     STAssertEquals(PLCRASH_ESUCCESS, plcrash_log_writer_init(&writer, @"test.id", @"1.0", @"2.0", PLCRASH_ASYNC_SYMBOL_STRATEGY_ALL, false), @"Initialization failed");
-    char *version = writer.system_info.version;
+    char *version = writer.system_info.version.data;
 
     STAssertTrue(version && version[0], @"Device version not saved");
 }
@@ -329,7 +328,7 @@
     /* Initialize the image list */
     plcrash_nasync_image_list_init(&image_list, mach_task_self());
     for (uint32_t i = 0; i < _dyld_image_count(); i++)
-        plcrash_nasync_image_list_append(&image_list, _dyld_get_image_header(i), _dyld_get_image_name(i));
+        plcrash_nasync_image_list_append(&image_list, (pl_vm_address_t) _dyld_get_image_header(i), _dyld_get_image_name(i));
 
     /* Initialze faux crash data */
     plcrash_log_signal_info_t info;

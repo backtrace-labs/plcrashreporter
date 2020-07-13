@@ -35,7 +35,7 @@
 @interface PLCrashAsyncTests : SenTestCase {
 @private
     /* Path to test output file */
-    NSString *_outputFile;
+    __strong NSString *_outputFile;
 
     /* Open output file descriptor */
     int _testFd;
@@ -48,7 +48,7 @@
 
 - (void) setUp {
     /* Create a temporary output file */
-    _outputFile = [[NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]] retain];
+    _outputFile = [NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]];
 
     _testFd = open([_outputFile UTF8String], O_RDWR|O_CREAT|O_EXCL, 0644);
     STAssertTrue(_testFd >= 0, @"Could not open test output file");
@@ -62,7 +62,7 @@
 
     /* Delete the file */
     STAssertTrue([[NSFileManager defaultManager] removeItemAtPath: _outputFile error: &error], @"Could not remove log file");
-    [_outputFile release];
+    _outputFile = nil;
 }
 
 - (void) testByteOrderDetection {
@@ -120,16 +120,16 @@
     union test_data dest;
     src.u64 = 0xCAFEF00DDEADBEEFULL;
     
-    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint64(mach_task_self(), byteorder, &src, 0, &dest.u64), @"Failed to read value");
+    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint64(mach_task_self(), byteorder, (pl_vm_address_t) &src, 0, &dest.u64), @"Failed to read value");
     STAssertEquals(byteorder->swap64(dest.u64), src.u64, @"Incorrect value read");
     
-    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint32(mach_task_self(), byteorder, &src, 0, &dest.u32), @"Failed to read value");
+    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint32(mach_task_self(), byteorder, (pl_vm_address_t) &src, 0, &dest.u32), @"Failed to read value");
     STAssertEquals(byteorder->swap32(dest.u32), src.u32, @"Incorrect value read");
     
-    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint16(mach_task_self(), byteorder, &src, 0, &dest.u16), @"Failed to read value");
+    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint16(mach_task_self(), byteorder, (pl_vm_address_t) &src, 0, &dest.u16), @"Failed to read value");
     STAssertEquals(byteorder->swap16(dest.u16), src.u16, @"Incorrect value read");
     
-    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint8(mach_task_self(), &src, 0, &dest.u8), @"Failed to read value");
+    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_task_read_uint8(mach_task_self(), (pl_vm_address_t) &src, 0, &dest.u8), @"Failed to read value");
     STAssertEquals(dest.u8, src.u8, @"Incorrect value read");
 }
 

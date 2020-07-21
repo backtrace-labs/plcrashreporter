@@ -21,6 +21,7 @@ Documentation/API/
 xcuserdata/
 
 ## Other
+/debug.txt
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint

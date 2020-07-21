@@ -2,39 +2,39 @@
   "entries": {
     "brew": {
       "xcodegen": {
-        "version": "2.15.1",
+        "version": "2.16.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.15.1.catalina.bottle.tar.gz",
-              "sha256": "9dc6875065ddf5816c00312328f0f4f1c801ad11c8c40af7192d3068ec1edf27"
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.16.0.catalina.bottle.tar.gz",
+              "sha256": "fc8f03f0f3968c6f913725629bdfa34a24a539a6868afdb1112b8f76cdbf5a55"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.15.1.mojave.bottle.tar.gz",
-              "sha256": "d6359a7e712f7a749184ad7f9285abaafdf1cc0187d01278645e46688f86bb8a"
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.16.0.mojave.bottle.tar.gz",
+              "sha256": "a8eea29cb064ef817a1aae173b102eb689a263fc4039987a4592e9f15c4b1d85"
             }
           }
         }
       },
       "graphviz": {
-        "version": "2.44.0",
+        "version": "2.44.1",
         "bottle": {
           "cellar": "/usr/local/Cellar",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.0.catalina.bottle.tar.gz",
-              "sha256": "b7622910804f75702b6124ed0a376f7d4f1c8aaa8dde38601549bb4c9a84589b"
+              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.1.catalina.bottle.tar.gz",
+              "sha256": "e1cc69e09c92ac1507e461e374de9a0b2d7b01d15e29bf43808f8f458303c67f"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.0.mojave.bottle.tar.gz",
-              "sha256": "cadbefa8657abfbc63d66827ca1492226d10fc6fdba9276f41e62be3b9434ba2"
+              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.1.mojave.bottle.tar.gz",
+              "sha256": "facbce9f3c97e2ad4b0ebf7344da4937722d6ae03c2091853c0bdd4f0e313e08"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.0.high_sierra.bottle.tar.gz",
-              "sha256": "c3b0269db2fb418c0e1b7413f10e0bec2d4f69485cfda484e8acf99cb1b86a54"
+              "url": "https://homebrew.bintray.com/bottles/graphviz-2.44.1.high_sierra.bottle.tar.gz",
+              "sha256": "86d0bb5111d0f97f4de3b1542280815f0b11cfda64bdbea09ba6ea2764205b8a"
             }
           }
         }
@@ -65,12 +65,12 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.2.16-69-g9fcaa46",
+        "HOMEBREW_VERSION": "2.4.8",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "2688e195ecbed273bd67f14d642a353159c38cb8",
-        "CLT": "",
-        "Xcode": "11.4.1",
-        "macOS": "10.15.4"
+        "Homebrew/homebrew-core": "c0519236570fbebc1b9f9fea17235e99153836dd",
+        "CLT": "1103.0.32.62",
+        "Xcode": "11.6",
+        "macOS": "10.15.6"
       }
     }
   }

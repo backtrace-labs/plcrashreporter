@@ -80,8 +80,13 @@ static void save_crash_report (PLCrashReporter *reporter) {
         NSLog(@"Failed to load crash report data: %@", error);
         return;
     }
+    [reporter purgePendingCrashReport];
 
-    PLCrashReport *report = [[[PLCrashReport alloc] initWithData: data error: &error] autorelease];
+    PLCrashReport *report = [[PLCrashReport alloc] initWithData: data error: &error];
+    if (report == nil) {
+       NSLog(@"Failed to parse crash report: %@", error);
+       return;
+   }
     NSString *text = [PLCrashReportTextFormatter stringValueForCrashReport: report withTextFormat: PLCrashReportTextFormatiOS];
     NSLog(@"%@", text);
 
@@ -89,7 +94,6 @@ static void save_crash_report (PLCrashReporter *reporter) {
     if (![data writeToFile: outputPath atomically: YES]) {
         NSLog(@"Failed to write crash report");
     }
-    
     NSLog(@"Saved crash report to: %@", outputPath);
 }
 
@@ -111,10 +115,7 @@ static void save_crash_report (PLCrashReporter *reporter) {
  * enabled.
  */
 static bool debugger_should_exit (void) {
-#if !TARGET_OS_IPHONE
-    return false;
-#endif
-
+#if TARGET_OS_IPHONE
     struct kinfo_proc info;
     size_t info_size = sizeof(info);
     int name[4];
@@ -131,55 +132,59 @@ static bool debugger_should_exit (void) {
 
     if ((info.kp_proc.p_flag & P_TRACED) != 0)
         return true;
-    
+#endif
     return false;
 }
 
 int main (int argc, char *argv[]) {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSError *error = nil;
+    @autoreleasepool {
+        NSError *error = nil;
 
-    /*
-     * Standalone "logic" tests aren't supported by XCTest when targeting an actual iOS device; instead,
-     * they require a host application under which the tests will run.
-     *
-     * The DemoCrash application serves as a test host; we simply look for the existence of the XCTest framework
-     * and assume that, should it be available, we're running as a test harness.
-     */
+        /*
+         * Standalone "logic" tests aren't supported by XCTest when targeting an actual iOS device; instead,
+         * they require a host application under which the tests will run.
+         *
+         * The DemoCrash application serves as a test host; we simply look for the existence of the XCTest framework
+         * and assume that, should it be available, we're running as a test harness.
+         */
 #if TARGET_OS_IPHONE
-    if (NSClassFromString(@"XCTestCase") != nil) {
-        return UIApplicationMain(argc, argv, nil, @"DemoCrashAppDelegate");
-    }
+        if (NSClassFromString(@"XCTestCase") != nil) {
+            return UIApplicationMain(argc, argv, nil, @"DemoCrashAppDelegate");
+        }
 #endif /* TARGET_IPHONE_OS */
 
-    /* Configure our reporter */
-    PLCrashReporterConfig *config = [[[PLCrashReporterConfig alloc] initWithSignalHandlerType: PLCrashReporterSignalHandlerTypeMach
-                                                                        symbolicationStrategy: PLCrashReporterSymbolicationStrategyAll] autorelease];
-    PLCrashReporter *reporter = [[[PLCrashReporter alloc] initWithConfiguration: config] autorelease];
+        /* Configure our reporter */
+        PLCrashReporterSignalHandlerType signalHandlerType =
+#if !TARGET_OS_TV
+            PLCrashReporterSignalHandlerTypeMach;
+#else
+            PLCrashReporterSignalHandlerTypeBSD;
+#endif
+        PLCrashReporterConfig *config = [[PLCrashReporterConfig alloc] initWithSignalHandlerType: signalHandlerType
+                                                                            symbolicationStrategy: PLCrashReporterSymbolicationStrategyAll];
+        PLCrashReporter *reporter = [[PLCrashReporter alloc] initWithConfiguration: config];
 
-    /* Save any existing crash report. */
-    save_crash_report(reporter);
+        /* Save any existing crash report. */
+        save_crash_report(reporter);
 
-    if (debugger_should_exit()) {
-        NSLog(@"The demo crash app should be run without a debugger present. Exiting ...");
-        return 0;
+        if (debugger_should_exit()) {
+            NSLog(@"The demo crash app should be run without a debugger present. Exiting ...");
+            return 0;
+        }
+
+        /* Set up post-crash callbacks */
+        PLCrashReporterCallbacks cb = {
+            .version = 0,
+            .context = (void *) 0xABABABAB,
+            .handleSignal = post_crash_callback
+        };
+        [reporter setCrashCallbacks: &cb];
+
+        /* Enable the crash reporter */
+        if (![reporter enableCrashReporterAndReturnError: &error]) {
+            NSLog(@"Could not enable crash reporter: %@", error);
+        }
+        /* Add another stack frame */
+        stackFrame();
     }
-
-    /* Set up post-crash callbacks */
-    PLCrashReporterCallbacks cb = {
-        .version = 0,
-        .context = (void *) 0xABABABAB,
-        .handleSignal = post_crash_callback
-    };
-    [reporter setCrashCallbacks: &cb];
-
-    /* Enable the crash reporter */
-    if (![reporter enableCrashReporterAndReturnError: &error]) {
-        NSLog(@"Could not enable crash reporter: %@", error);
-    }
-
-    /* Add another stack frame */
-    stackFrame();
-
-    [pool release];
 }

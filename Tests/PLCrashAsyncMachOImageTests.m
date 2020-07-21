@@ -48,8 +48,7 @@
 - (void) setUp {
     /* Fetch our containing image's dyld info */
     Dl_info info;
-    STAssertTrue(dladdr([self class], &info) > 0, @"Could not fetch dyld info for %p", [self class]);
-
+    STAssertTrue(dladdr((__bridge void *)([self class]), &info) > 0, @"Could not fetch dyld info for %p", [self class]);
     /* Look up the vmaddr and slide for our image */
     uintptr_t text_vmaddr;
     pl_vm_off_t vmaddr_slide = 0;
@@ -57,7 +56,7 @@
     for (uint32_t i = 0; i < _dyld_image_count(); i++) {
         if (_dyld_get_image_header(i) == info.dli_fbase) {
             vmaddr_slide = _dyld_get_image_vmaddr_slide(i);
-            text_vmaddr = info.dli_fbase - vmaddr_slide;
+            text_vmaddr = (uintptr_t) (info.dli_fbase - vmaddr_slide);
             found_image = true;
             break;
         }
@@ -258,11 +257,18 @@
     plcrash_async_mobject_t mobj;
     
     /* Try to map the section */
-    STAssertEquals(PLCRASH_ESUCCESS, plcrash_async_macho_map_section(&_image, "__DATA", "__const", &mobj), @"Failed to map section");
+    const char *segname = "__DATA";
+    const char *sectname = "__const";
+    plcrash_error_t err = plcrash_async_macho_map_section(&_image, segname, sectname, &mobj);
+    if (err == PLCRASH_ENOTFOUND) {
+        segname = "__DATA_CONST";
+        err = plcrash_async_macho_map_section(&_image, segname, sectname, &mobj);
+    }
+    STAssertEquals(PLCRASH_ESUCCESS, err, @"Failed to map section");
     
     /* Fetch the section directly for comparison */
     unsigned long sectsize = 0;
-    uint8_t *data = getsectiondata((void *)_image.header_addr, "__DATA", "__const", &sectsize);
+    uint8_t *data = getsectiondata((void *)_image.header_addr, segname, sectname, &sectsize);
     STAssertNotNULL(data, @"Could not fetch section data");
 
     /* Compare the address and length. We have to apply the slide to determine the original source address. */
@@ -418,7 +424,7 @@ static void testFindSymbol_cb (pl_vm_address_t address, const char *name, void *
     
     /* Perform our symbol lookup */
     pl_vm_address_t pc;
-    plcrash_error_t res = plcrash_async_macho_find_symbol_by_name(&_image, (pl_vm_address_t) dli.dli_sname, &pc);
+    plcrash_error_t res = plcrash_async_macho_find_symbol_by_name(&_image, (const char *) dli.dli_sname, &pc);
     STAssertEquals(res, PLCRASH_ESUCCESS, @"Failed to locate symbol %s", dli.dli_sname);
 
     /* Compare the results */

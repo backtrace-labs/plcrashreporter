@@ -86,6 +86,7 @@
 		25447058DCEFF9EBC8828DDE /* PLCrashReportApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B57B9395D8D2042AF18B08F6 /* PLCrashReportApplicationInfo.m */; };
 		25675AD475C6EC8080208863 /* mach_exc_x86_64User.inc in Resources */ = {isa = PBXBuildFile; fileRef = FB70B6EBC721C175808D0A0D /* mach_exc_x86_64User.inc */; };
 		26785782842BF678E6B40EA5 /* PLCrashSignalHandlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2693B3132C82CCE2AE8ECC /* PLCrashSignalHandlerTests.m */; };
+		26787681AFC0702BAB4E0CCE /* CrashReporterFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E39E8C9AE96FAFC6ECF9BF /* CrashReporterFramework.m */; };
 		27666C8C02416AB5A6479E87 /* PLCrashAsyncThread_arm.c in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F93F1E2E608C9143489E2 /* PLCrashAsyncThread_arm.c */; };
 		2801FD7024F1956B9DB873D1 /* PLCrashReportProcessInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C171916FDDED01009C01FD /* PLCrashReportProcessInfo.m */; };
 		2854332002D68A414A77A2E1 /* PLCrashFrameWalker.c in Sources */ = {isa = PBXBuildFile; fileRef = 25ED26D1D4D6609BEDE49457 /* PLCrashFrameWalker.c */; };
@@ -133,6 +134,7 @@
 		3DE024F669E7036B376FDBE9 /* dwarf_opstream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7DD353F38D91BAFA0692208 /* dwarf_opstream.cpp */; };
 		3E33405CF38D0DB6E6BEC9D9 /* PLCrashAsyncMObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 058F7C4823DC30D5DE79C0A3 /* PLCrashAsyncMObject.c */; };
 		3EE84A4350AF3D28E5C64F56 /* PLCrashSignalHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 68336FF83C769F4C61A1C55A /* PLCrashSignalHandler.mm */; };
+		403812177EAFDD6DC00EC9D1 /* CrashReporterFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E39E8C9AE96FAFC6ECF9BF /* CrashReporterFramework.m */; };
 		403ADD8EBE0E64711C367681 /* PLCrashAsyncThread_x86.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BFF6A72FF83450C9D087EA /* PLCrashAsyncThread_x86.h */; };
 		4087FDA71DD2369618E0D4DD /* PLCrashTestThreadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56439D2DD0180B482CC51218 /* PLCrashTestThreadTests.m */; };
 		41DAE4768F080930AAEF8C57 /* unwind_test_x86_frameless_big.S in Sources */ = {isa = PBXBuildFile; fileRef = 9F361F526146346F40966CBB /* unwind_test_x86_frameless_big.S */; };
@@ -495,6 +497,7 @@
 		D87478FE16EFCC5EDBB3BEC4 /* PLCrashReportSymbolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 10FAF5C5AD338333B388F1F1 /* PLCrashReportSymbolInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8EB27452F330E30B897371B /* PLCrashMachExceptionServer.h in Headers */ = {isa = PBXBuildFile; fileRef = EE3280C77F5DB8AD3812A0BD /* PLCrashMachExceptionServer.h */; };
 		D9B2BD7A14E8C43D98A16A20 /* PLCrashReporterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B90D439683B696C30428034D /* PLCrashReporterTests.m */; };
+		DAF4D28B9D901421F68686A7 /* CrashReporterFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E39E8C9AE96FAFC6ECF9BF /* CrashReporterFramework.m */; };
 		DB29FC365231CE01D8829733 /* mach_exc_i386User.inc in Resources */ = {isa = PBXBuildFile; fileRef = D3EAA5AC022A17697D3DE867 /* mach_exc_i386User.inc */; };
 		DB7A88088508F6C6A67AC045 /* PLCrashAsyncDwarfFDETests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D2184206BCE212E847837E7 /* PLCrashAsyncDwarfFDETests.mm */; };
 		DB883795B152D8255DD925C8 /* dwarf_opstream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7DD353F38D91BAFA0692208 /* dwarf_opstream.cpp */; };
@@ -650,6 +653,7 @@
 		039B6E6C411CBD5CE3031D46 /* PLCrashAsyncMachOString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashAsyncMachOString.h; sourceTree = "<group>"; };
 		0521732A3E2FBA2192DC6E2A /* PLCrashFeatureConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashFeatureConfig.h; sourceTree = "<group>"; };
 		058F7C4823DC30D5DE79C0A3 /* PLCrashAsyncMObject.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PLCrashAsyncMObject.c; sourceTree = "<group>"; };
+		05E39E8C9AE96FAFC6ECF9BF /* CrashReporterFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashReporterFramework.m; sourceTree = "<group>"; };
 		0B359CBE312CD0E43773D11F /* PLCrashFrameDWARFUnwind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCrashFrameDWARFUnwind.h; sourceTree = "<group>"; };
 		0B61F2A57929DA5A6E07BBA7 /* PLCrashReportProcessorInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCrashReportProcessorInfo.m; sourceTree = "<group>"; };
 		0BE36C55809C3E77DC56F655 /* PLCrashProcessInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCrashProcessInfoTests.m; sourceTree = "<group>"; };
@@ -987,6 +991,7 @@
 			isa = PBXGroup;
 			children = (
 				12190272F51B5C85C47EF98D /* CrashReporter.m */,
+				05E39E8C9AE96FAFC6ECF9BF /* CrashReporterFramework.m */,
 				E7DD353F38D91BAFA0692208 /* dwarf_opstream.cpp */,
 				66753A66BF4E244B18979671 /* dwarf_opstream.hpp */,
 				7C3A57F52EA4B0D7C08D6DCA /* dwarf_private.h */,
@@ -1650,6 +1655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7941341BC4FCBC2E1101B8B /* CrashReporter.m in Sources */,
+				DAF4D28B9D901421F68686A7 /* CrashReporterFramework.m in Sources */,
 				CF9618E8ED262D11C9BF5912 /* PLCrashAsync.c in Sources */,
 				1815A5AD4CE2EF7146FBF2B6 /* PLCrashAsyncCompactUnwindEncoding.c in Sources */,
 				E98BFB483E54169A1EC53E7E /* PLCrashAsyncDwarfCFAState.cpp in Sources */,
@@ -1782,6 +1788,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63786537172AAE9417AEBBF8 /* CrashReporter.m in Sources */,
+				26787681AFC0702BAB4E0CCE /* CrashReporterFramework.m in Sources */,
 				751B836B0A047D4EC4CD2A4C /* PLCrashAsync.c in Sources */,
 				CB1FB85453BBE782909C33CB /* PLCrashAsyncCompactUnwindEncoding.c in Sources */,
 				91115E127169171CDD86EA1F /* PLCrashAsyncDwarfCFAState.cpp in Sources */,
@@ -1848,6 +1855,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB283CDD14AA0A279C9443B5 /* CrashReporter.m in Sources */,
+				403812177EAFDD6DC00EC9D1 /* CrashReporterFramework.m in Sources */,
 				CDF77DDDC7C47DD0F9E119A5 /* PLCrashAsync.c in Sources */,
 				EFF0EA96E1560370733D42CA /* PLCrashAsyncCompactUnwindEncoding.c in Sources */,
 				2D8592A63B3A3DFDEB5B03C3 /* PLCrashAsyncDwarfCFAState.cpp in Sources */,

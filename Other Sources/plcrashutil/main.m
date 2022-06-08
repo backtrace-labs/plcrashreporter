@@ -133,6 +133,5 @@ int main (int argc, char *argv[]) {
         ret = 1;
     }
 
-    [pool release];
     exit(ret);
 }

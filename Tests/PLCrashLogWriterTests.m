@@ -65,7 +65,7 @@
 
 - (void) setUp {
     /* Create a temporary log path */
-    _logPath = [[NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]] retain];
+    _logPath = [NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]];
     
     /* Create the test thread */
     plcrash_test_thread_spawn(&_thr_args);
@@ -78,7 +78,7 @@
     if ([[NSFileManager defaultManager] fileExistsAtPath: _logPath]) {
         STAssertTrue([[NSFileManager defaultManager] removeItemAtPath: _logPath error: &error], @"Could not remove log file");
     }
-    [_logPath release];
+    _logPath = nil;
 
     /* Stop the test thread */
     plcrash_test_thread_stop(&_thr_args);
@@ -152,7 +152,7 @@
     STAssertNotNil(processInfo, @"Could not retrieve process info");
     STAssertNotNil(processInfo.processName, @"Could not retrieve parent process name");
 
-    NSString *parsedProcessName = [[[NSString alloc] initWithCString: procInfo->process_name encoding: NSUTF8StringEncoding] autorelease];
+    NSString *parsedProcessName = [[NSString alloc] initWithCString: procInfo->process_name encoding: NSUTF8StringEncoding];
     STAssertNotNil(parsedProcessName, @"Process name contains invalid UTF-8");
     STAssertEqualStrings(parsedProcessName, processInfo.processName, @"Incorrect process name");
 
@@ -171,7 +171,7 @@
     
     /* Parent process; fetching the process info is expected to fail on non-OSX systems (e.g. iOS 9+ and tvOS) due to
      * new sandbox constraints */
-    PLCrashProcessInfo *parentProcessInfo = [[[PLCrashProcessInfo alloc] initWithProcessID: getppid()] autorelease];
+    PLCrashProcessInfo *parentProcessInfo = [[PLCrashProcessInfo alloc] initWithProcessID: getppid()];
 
     if (PLCrashReportHostOperatingSystem == PLCrashReportOperatingSystemAppleTVOS ||
         (PLCrashReportHostOperatingSystem == PLCrashReportOperatingSystemiPhoneOS &&
@@ -185,7 +185,7 @@
         STAssertNotNil(parentProcessInfo.processName, @"Could not retrieve parent process name");
         STAssertNotNULL(procInfo->parent_process_name, @"Crash log writer could not retrieve parent process name");
         
-        NSString *parsedParentProcessName = [[[NSString alloc] initWithCString: procInfo->parent_process_name encoding: NSUTF8StringEncoding] autorelease];
+        NSString *parsedParentProcessName = [[NSString alloc] initWithCString: procInfo->parent_process_name encoding: NSUTF8StringEncoding];
         STAssertNotNil(parsedParentProcessName, @"Process name contains invalid UTF-8");
         STAssertEqualStrings(parsedParentProcessName, parentProcessInfo.processName, @"Incorrect process name");
 

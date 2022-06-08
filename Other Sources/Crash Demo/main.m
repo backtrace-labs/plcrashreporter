@@ -153,9 +153,9 @@ int main (int argc, char *argv[]) {
 #endif /* TARGET_IPHONE_OS */
 
     /* Configure our reporter */
-    PLCrashReporterConfig *config = [[[PLCrashReporterConfig alloc] initWithSignalHandlerType: PLCrashReporterSignalHandlerTypeMach
-                                                                        symbolicationStrategy: PLCrashReporterSymbolicationStrategyAll] autorelease];
-    PLCrashReporter *reporter = [[[PLCrashReporter alloc] initWithConfiguration: config] autorelease];
+    PLCrashReporterConfig *config = [[PLCrashReporterConfig alloc] initWithSignalHandlerType: PLCrashReporterSignalHandlerTypeMach
+                                                                        symbolicationStrategy: PLCrashReporterSymbolicationStrategyAll];
+    PLCrashReporter *reporter = [[PLCrashReporter alloc] initWithConfiguration: config];
 
     /* Save any existing crash report. */
     save_crash_report(reporter);
@@ -180,6 +180,4 @@ int main (int argc, char *argv[]) {
 
     /* Add another stack frame */
     stackFrame();
-
-    [pool release];
 }

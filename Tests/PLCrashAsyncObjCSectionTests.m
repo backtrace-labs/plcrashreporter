@@ -183,7 +183,7 @@ static void ParseCallbackTrampoline(bool isClassMethod, plcrash_async_macho_stri
     STAssertTrue(didCall, @"Method find callback never got called");
     STAssertEquals(err, PLCRASH_ESUCCESS, @"ObjC parse failed");
     
-    PLCrashAsyncObjCSectionTestsSimpleClass *obj = [[[PLCrashAsyncObjCSectionTestsSimpleClass alloc] init] autorelease];
+    PLCrashAsyncObjCSectionTestsSimpleClass *obj = [[PLCrashAsyncObjCSectionTestsSimpleClass alloc] init];
     didCall = NO;
     err = plcrash_async_objc_find_method(&_image, &objCContext, [obj addressInSimpleClass], ParseCallbackTrampoline, ^(bool isClassMethod, plcrash_async_macho_string_t *className, plcrash_async_macho_string_t *methodName, pl_vm_address_t imp, void *ctx) {
         didCall = YES;

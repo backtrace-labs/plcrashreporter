@@ -56,7 +56,7 @@
 
 - (void) setUp {
     /* Create a temporary log path */
-    _logPath = [[NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]] retain];
+    _logPath = [NSTemporaryDirectory() stringByAppendingString: [[NSProcessInfo processInfo] globallyUniqueString]];
 }
 
 - (void) tearDown {
@@ -64,7 +64,7 @@
     
     /* Delete the file */
     STAssertTrue([[NSFileManager defaultManager] removeItemAtPath: _logPath error: &error], @"Could not remove log file");
-    [_logPath release];
+    _logPath = nil;
 }
 
 struct plcr_live_report_context {
@@ -147,7 +147,7 @@ static plcrash_error_t plcr_live_report_callback (plcrash_async_thread_state_t *
 
     /* Try to parse it */
     NSData *data = [NSData dataWithContentsOfFile:_logPath options:NSDataReadingMappedIfSafe error:nil];
-    PLCrashReport *crashLog = [[[PLCrashReport alloc] initWithData: data error: &error] autorelease];
+    PLCrashReport *crashLog = [[PLCrashReport alloc] initWithData: data error: &error];
     STAssertNotNil(crashLog, @"Could not decode crash log: %@", error);
 
     /* Report info */

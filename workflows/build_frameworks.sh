@@ -82,8 +82,8 @@ xcodebuild -create-xcframework \
     -archive ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive -framework CrashReporter.framework \
     -output ${WORKFLOW_XC_PATH}/CrashReporter.xcframework
 
-#rm -rf ${BUILD_PATH}
-#rm -rf ${DERIVED_DATA_PATH}
+rm -rf ${BUILD_PATH}
+rm -rf ${DERIVED_DATA_PATH}
 
 if [ ! -d "${WORKFLOW_XC_PATH}/CrashReporter.xcframework" ]; then
   echo "Error: xcframework failed"

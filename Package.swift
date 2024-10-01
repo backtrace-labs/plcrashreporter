@@ -3,19 +3,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "PLCrashReporter",
+    name: "Backtrace-PLCrashReporter",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v11),
-        .macOS(.v10_10),
-        .tvOS(.v11)
+        .iOS(.v12),
+        .macOS(.v10_13),
+        .tvOS(.v12)
     ],
     products: [
-        .library(name: "CrashReporter", targets: ["CrashReporter"])
+        .library(name: "Backtrace-PLCrashReporter", targets: ["Backtrace-PLCrashReporter"])
     ],
     targets: [
         .target(
-            name: "CrashReporter",
+            name: "Backtrace-PLCrashReporter",
             path: "",
             exclude: [
                 "Source/dwarf_opstream.hpp",

@@ -11,13 +11,17 @@ Pod::Spec.new do |spec|
 
   spec.source      = { :git => "https://github.com/backtrace-labs/plcrashreporter.git", :tag => "#{ spec.version}" }
 
-  spec.source_files  = "Sources/**/*.{h,hpp,c,cpp,m,mm,s}", "Dependencies/protobuf-c/protobuf-c/*.{h,c}"
+  spec.source_files  = ["Source/**/*.{h,hpp,c,cpp,m,mm,s}", "Dependencies/protobuf-c/protobuf-c/*.{h,c}"]
 
-  spec.public_header_files = "Sources/include"
+  spec.public_header_files = "include/**/*.h*"
 
   spec.resource_bundle = { 'Backtrace-PLCrashReporter' => 'Resources/PrivacyInfo.xcprivacy' }
 
   spec.ios.deployment_target    = '12.0'
   spec.osx.deployment_target    = '10.13'
   spec.tvos.deployment_target   = '12.0'
+
+  spec.pod_target_xcconfig = {
+    "GCC_PREPROCESSOR_DEFINITIONS" => "PLCR_PRIVATE PLCF_RELEASE_BUILD"
+  }
 end

@@ -1242,7 +1242,7 @@
 		C2B72B15245349C500D03ABD /* PLCrashLogWriterEncodingTests.pb-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PLCrashLogWriterEncodingTests.pb-c.h"; sourceTree = "<group>"; };
 		C2B72B2424534EE700D03ABD /* protobuf-c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "protobuf-c.h"; sourceTree = "<group>"; };
 		C2B72B2524534EE700D03ABD /* protobuf-c.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "protobuf-c.c"; sourceTree = "<group>"; };
-		C2B90DA12456FE8200834AFB /* PLCrashReporter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = PLCrashReporter.podspec; sourceTree = "<group>"; };
+		C2B90DA12456FE8200834AFB /* Backtrace-PLCrashReporter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Backtrace-PLCrashReporter.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C2B90DA22456FE8200834AFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C2B90DA32456FE8200834AFB /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		C2B90DA5245714E900834AFB /* generate-documentation.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-documentation.sh"; sourceTree = "<group>"; };
@@ -1876,7 +1876,7 @@
 			children = (
 				C2B90DA32456FE8200834AFB /* CHANGELOG.md */,
 				C2B90DA22456FE8200834AFB /* README.md */,
-				C2B90DA12456FE8200834AFB /* PLCrashReporter.podspec */,
+				C2B90DA12456FE8200834AFB /* Backtrace-PLCrashReporter.podspec */,
 				08FB77AEFE84172EC02AAC07 /* Source */,
 				C29AD6C02456C61E00360AF7 /* Tests */,
 				059670E30EEFADA6008A0601 /* Dependencies */,
@@ -3827,7 +3827,9 @@
 				DEFINES_MODULE = YES;
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
@@ -3837,6 +3839,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -3852,7 +3855,9 @@
 				DEFINES_MODULE = YES;
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
@@ -3863,20 +3868,27 @@
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
 		058812D510405908009128FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = PLCrashReporter;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		058812D610405908009128FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = PLCrashReporter;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -3888,13 +3900,16 @@
 					arm64e,
 				);
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				"OTHER_CFLAGS[sdk=macosx*]" = "";
 				PUBLIC_HEADERS_FOLDER_PATH = include;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -3907,7 +3922,9 @@
 				);
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				"OTHER_CFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
 				"OTHER_CFLAGS[sdk=macosx*]" = "";
@@ -3915,6 +3932,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -3924,9 +3942,12 @@
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tests macOS";
 				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -3937,9 +3958,12 @@
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tests macOS";
 				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -3949,10 +3973,13 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tests iOS";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -3962,10 +3989,13 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "Tests iOS";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -3975,8 +4005,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = plcrashutil;
 				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -3985,8 +4018,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = plcrashutil;
 				SDKROOT = macosx;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -3995,9 +4031,12 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PUBLIC_HEADERS_FOLDER_PATH = include;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4006,9 +4045,12 @@
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				EFFECTIVE_PLATFORM_NAME = "-macosx";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PUBLIC_HEADERS_FOLDER_PATH = include;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4062,6 +4104,7 @@
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
@@ -4070,6 +4113,7 @@
 				PRELINK_LIBS = "$(CONFIGURATION_BUILD_DIR)/lib$(PRODUCT_NAME).a";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4083,6 +4127,7 @@
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
@@ -4091,6 +4136,7 @@
 				PRELINK_LIBS = "$(CONFIGURATION_BUILD_DIR)/lib$(PRODUCT_NAME).a";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4234,13 +4280,16 @@
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)-macosx";
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				OTHER_LDFLAGS = "-ObjC";
 				PRELINK_LIBS = "$(BUILD_DIR)/$(CONFIGURATION)-macosx/lib$(PRODUCT_NAME).a";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4253,13 +4302,16 @@
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)-macosx";
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				OTHER_LDFLAGS = "-ObjC";
 				PRELINK_LIBS = "$(BUILD_DIR)/$(CONFIGURATION)-macosx/lib$(PRODUCT_NAME).a";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4267,11 +4319,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				PUBLIC_HEADERS_FOLDER_PATH = include;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4280,12 +4335,15 @@
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				"OTHER_CFLAGS[sdk=appletvos*]" = "-fembed-bitcode";
 				PUBLIC_HEADERS_FOLDER_PATH = include;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4298,7 +4356,9 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
@@ -4306,6 +4366,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4319,7 +4380,9 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
@@ -4328,6 +4391,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4336,9 +4400,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -4348,9 +4415,12 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5Z97G9NZQ6;
 				INFOPLIST_FILE = "Resources/Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -4384,14 +4454,20 @@
 		C25664D323571D340088513E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		C25664D423571D340088513E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4399,7 +4475,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-iphoneuniversal";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = iphoneos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4407,7 +4486,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-iphoneuniversal";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = iphoneos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4415,7 +4497,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-appletvuniversal";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4423,21 +4508,30 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-appletvuniversal";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
 		C2C74D9C2538508300313817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		C2C74D9D2538508300313817 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -4445,6 +4539,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-xcframework";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
@@ -4452,6 +4549,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EFFECTIVE_PLATFORM_NAME = "-xcframework";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};

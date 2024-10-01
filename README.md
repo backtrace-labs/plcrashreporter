@@ -83,7 +83,7 @@ The following example shows a way how to initialize crash reporter. Please note 
 ### Objective-c
 
 ```objc
-@import CrashReporter;
+@import Backtrace_PLCrashReporter;
 
 ...
 
@@ -137,7 +137,7 @@ if ([crashReporter hasPendingCrashReport]) {
 ### Swift
 
 ```swift 
-import CrashReporter
+import Backtrace_PLCrashReporter
 
 ...
 // Uncomment and implement isDebuggerAttached to safely run this code with a debugger.

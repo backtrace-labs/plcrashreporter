@@ -11,9 +11,9 @@ Pod::Spec.new do |spec|
 
   spec.source      = { :git => "https://github.com/backtrace-labs/plcrashreporter.git", :tag => "#{ spec.version}" }
 
-  spec.source_files  = ["Source/**/*.{h,hpp,c,cpp,m,mm,s}", "Dependencies/protobuf-c/protobuf-c/*.{h,c}"]
+  spec.source_files  = ["Source/**/*.{h,hpp,c,cpp,m,mm,s}", "Dependencies/**/*.{h,c}"]
 
-  spec.public_header_files = "include/**/*.h*"
+  spec.public_header_files = ["include/**/*.h*", "Dependencies/**/*.h*}"]
 
   spec.resource_bundle = { 'Backtrace-PLCrashReporter' => 'Resources/PrivacyInfo.xcprivacy' }
 

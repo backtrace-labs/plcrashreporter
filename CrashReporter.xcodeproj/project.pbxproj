@@ -84,10 +84,10 @@
 				F8B9C72E24695BF200B9FEF6 /* Combine XCFramework */,
 			);
 			dependencies = (
-				F8CF2BCD246C05D100904633 /* PBXTargetDependency */,
+				20D4E5E72CAE6FC4000C92BF /* PBXTargetDependency */,
+				20D4E5E52CAE6FB7000C92BF /* PBXTargetDependency */,
 				F8CF2BD1246C05D100904633 /* PBXTargetDependency */,
 				C23D0556248A7C440094EC6B /* PBXTargetDependency */,
-				32CF7A1126DFCAC10087748A /* PBXTargetDependency */,
 			);
 			name = "CrashReporter XCFramework";
 			productName = "CrashReporter XCFramework";
@@ -887,12 +887,19 @@
 			remoteGlobalIDString = 05E731F20EFA1AAB005EDFB7;
 			remoteInfo = "CrashReporter-MacOSX-Static";
 		};
-		32CF7A1026DFCAC10087748A /* PBXContainerItemProxy */ = {
+		20D4E5E42CAE6FB7000C92BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2B90D952456FBD000834AFB;
+			remoteInfo = "CrashReporter iOS Universal";
+		};
+		20D4E5E62CAE6FC4000C92BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 32CF775E26DFBB080087748A;
-			remoteInfo = "CrashReporter macOS Framework static";
+			remoteInfo = "CrashReporter macOS Static Framework";
 		};
 		80A63BC01C4D2BE20073B7A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -984,20 +991,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8064D88B1C4D22E5005A8B4C;
 			remoteInfo = "CrashReporter tvOS Framework";
-		};
-		C2E312042869BF1700CD5C50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 05E731F20EFA1AAB005EDFB7;
-			remoteInfo = "CrashReporter macOS";
-		};
-		F8CF2BCC246C05D100904633 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C2B90D952456FBD000834AFB;
-			remoteInfo = "CrashReporter iOS Universal";
 		};
 		F8CF2BD0246C05D100904633 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2575,7 +2568,6 @@
 			);
 			dependencies = (
 				C259BD4B2869ADAE00DBCE48 /* PBXTargetDependency */,
-				C2E312052869BF1700CD5C50 /* PBXTargetDependency */,
 			);
 			name = "CrashReporter macOS Static Framework";
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -3668,10 +3660,15 @@
 			target = 05E731F20EFA1AAB005EDFB7 /* CrashReporter macOS */;
 			targetProxy = 05E7325C0EFA1F6C005EDFB7 /* PBXContainerItemProxy */;
 		};
-		32CF7A1126DFCAC10087748A /* PBXTargetDependency */ = {
+		20D4E5E52CAE6FB7000C92BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2B90D952456FBD000834AFB /* CrashReporter iOS Universal */;
+			targetProxy = 20D4E5E42CAE6FB7000C92BF /* PBXContainerItemProxy */;
+		};
+		20D4E5E72CAE6FC4000C92BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 32CF775E26DFBB080087748A /* CrashReporter macOS Static Framework */;
-			targetProxy = 32CF7A1026DFCAC10087748A /* PBXContainerItemProxy */;
+			targetProxy = 20D4E5E62CAE6FC4000C92BF /* PBXContainerItemProxy */;
 		};
 		80A63BC11C4D2BE20073B7A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3737,16 +3734,6 @@
 			isa = PBXTargetDependency;
 			target = 8064D88B1C4D22E5005A8B4C /* CrashReporter tvOS Framework */;
 			targetProxy = C2CBA40E245869F4001B775F /* PBXContainerItemProxy */;
-		};
-		C2E312052869BF1700CD5C50 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 05E731F20EFA1AAB005EDFB7 /* CrashReporter macOS */;
-			targetProxy = C2E312042869BF1700CD5C50 /* PBXContainerItemProxy */;
-		};
-		F8CF2BCD246C05D100904633 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C2B90D952456FBD000834AFB /* CrashReporter iOS Universal */;
-			targetProxy = F8CF2BCC246C05D100904633 /* PBXContainerItemProxy */;
 		};
 		F8CF2BD1246C05D100904633 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3819,10 +3806,6 @@
 		058812BC1040582E009128FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = (
-					"$(ARCHS_STANDARD)",
-					arm64e,
-				);
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				DEFINES_MODULE = YES;
 				GENERATE_MASTER_OBJECT_FILE = YES;
@@ -3846,10 +3829,6 @@
 		058812BD1040582E009128FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = (
-					"$(ARCHS_STANDARD)",
-					arm64e,
-				);
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				DEFINES_MODULE = YES;
@@ -3859,7 +3838,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				"OTHER_CFLAGS[sdk=iphoneos*]" = "-fembed-bitcode";
 				"OTHER_CFLAGS[sdk=macosx*]" = "";
@@ -3895,10 +3874,6 @@
 		05CD31530EE936AA000FDE88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = (
-					"$(ARCHS_STANDARD)",
-					arm64e,
-				);
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MACH_O_TYPE = staticlib;
@@ -3916,10 +3891,6 @@
 		05CD31540EE936AA000FDE88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = (
-					"$(ARCHS_STANDARD)",
-					arm64e,
-				);
 				BITCODE_GENERATION_MODE = bitcode;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -4131,7 +4102,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRELINK_LIBS = "$(CONFIGURATION_BUILD_DIR)/lib$(PRODUCT_NAME).a";
 				SDKROOT = macosx;
@@ -4195,6 +4166,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/*\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LIBTOOLFLAGS = "-no_warning_for_no_symbols";
@@ -4260,6 +4232,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/protobuf-c\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/*\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LIBTOOLFLAGS = "-no_warning_for_no_symbols";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.${PRODUCT_NAME:identifier}";
@@ -4384,7 +4357,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MODULEMAP_FILE = Resources/CrashReporter.modulemap;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fembed-bitcode-marker";
 				"OTHER_CFLAGS[sdk=appletvos*]" = "-fembed-bitcode";
 				PRELINK_LIBS = "$(CONFIGURATION_BUILD_DIR)/lib$(PRODUCT_NAME).a";
@@ -4519,6 +4492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/*\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 12.0;
@@ -4529,6 +4503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Dependencies/*\"";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TVOS_DEPLOYMENT_TARGET = 12.0;

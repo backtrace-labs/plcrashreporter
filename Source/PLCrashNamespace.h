@@ -35,7 +35,7 @@
  * This may be used to avoid symbol conflicts between multiple libraries
  * that may both incorporate PLCrashReporter.
  */
-// #define PLCRASHREPORTER_PREFIX AcmeCo
+#define PLCRASHREPORTER_PREFIX Backtrace
 
 
 // We need two extra layers of indirection to make CPP substitute
@@ -295,7 +295,7 @@
 #ifdef PLCR_PRIVATE
    /* If no prefix has been defined, we need to specify our own private prefix */
 #  ifndef PLCRASHREPORTER_PREFIX
-#    define PLCRASHREPORTER_PREFIX PL_
+#    define PLCRASHREPORTER_PREFIX PL_Backtrace_
 #  endif
 
 #  define protobuf_c_buffer_simple_append                   PLNS(protobuf_c_buffer_simple_append)

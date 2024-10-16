@@ -73,12 +73,12 @@ xcodebuild archive \
     BUILD_LIBRARY_FOR_DISTRIBUTION=YES SKIP_INSTALL=NO
 
 xcodebuild -create-xcframework \
-    -archive ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive -framework CrashReporter.framework \
-    -archive ${BUILD_PATH}/CrashReporter-iOS-Simulator-lib.xcarchive -framework CrashReporter.framework \
-    -archive ${BUILD_PATH}/CrashReporter-iOS-MacCatalyst-lib.xcarchive -framework CrashReporter.framework \
-    -archive ${BUILD_PATH}/CrashReporter-macOS-lib.xcarchive -framework CrashReporter.framework \
-    -archive ${BUILD_PATH}/CrashReporter-tvOS-lib.xcarchive -framework CrashReporter.framework \
-    -archive ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive -framework CrashReporter.framework \
+    -library ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-iOS-Simulator-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-iOS-MacCatalyst-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-macOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-tvOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
     -output ${WORKFLOW_XC_PATH}/CrashReporter.xcframework
 
 rm -rf ${BUILD_PATH}

@@ -4,15 +4,16 @@ PROJECT_DIR="$(dirname "$0")/../Runs"
 BUILD_PATH="${PROJECT_DIR}/.build"
 WORKFLOW_XC_PATH="${PROJECT_DIR}/frameworks"
 WORKFLOW_XC_PATH_STATIC="${PROJECT_DIR}/frameworks/static"
+WORKFLOW_XC_PATH_DYLIB="${PROJECT_DIR}/frameworks/dylib"
 DERIVED_DATA_PATH="${PROJECT_DIR}/.derivedData"
 
 rm -rf ${BUILD_PATH}
 rm -rf ${WORKFLOW_XC_PATH}
-rm -rf ${WORKFLOW_XC_PATH_STATIC}
 rm -rf ${DERIVED_DATA_PATH}
 mkdir ${BUILD_PATH}
 mkdir ${WORKFLOW_XC_PATH}
 mkdir ${WORKFLOW_XC_PATH_STATIC}
+mkdir ${WORKFLOW_XC_PATH_DYLIB}
 mkdir ${DERIVED_DATA_PATH}
 
 xcodebuild archive \
@@ -82,7 +83,7 @@ xcodebuild -create-xcframework \
     -archive ${BUILD_PATH}/CrashReporter-macOS-lib.xcarchive -framework CrashReporter.framework \
     -archive ${BUILD_PATH}/CrashReporter-tvOS-lib.xcarchive -framework CrashReporter.framework \
     -archive ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive -framework CrashReporter.framework \
-    -output ${WORKFLOW_XC_PATH}/CrashReporter.xcframework
+    -output ${WORKFLOW_XC_PATH_DYLIB}/CrashReporter.xcframework
 
 xcodebuild -create-xcframework \
     -library ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
@@ -96,7 +97,7 @@ xcodebuild -create-xcframework \
 rm -rf ${BUILD_PATH}
 rm -rf ${DERIVED_DATA_PATH}
 
-if [ ! -d "${WORKFLOW_XC_PATH}/CrashReporter.xcframework" ]; then
+if [ ! -d "${WORKFLOW_XC_PATH_DYLIB}/CrashReporter.xcframework" ]; then
   echo "Error: xcframework failed"
   rm -rf ${WORKFLOW_XC_PATH}
   exit 1

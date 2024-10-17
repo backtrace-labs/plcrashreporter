@@ -8,6 +8,9 @@ jobs:
   build-frameworks:
     runs-on: macos-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+            
       - name: Build frameworks
         run: sh Scripts/build_frameworks.sh
         env:

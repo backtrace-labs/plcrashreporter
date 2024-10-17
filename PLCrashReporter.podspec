@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.license     = { :type => 'MIT', :file => 'LICENSE' }
   spec.authors     = { 'Microsoft' => 'appcentersdk@microsoft.com' }
 
-  spec.source      = { :http     => "https://github.com/backtrace-labs/plcrashreporter/releases/download/1.11.2-rc1/CrashReporter.xcframework.zip",
+  spec.source      = { :http     => "https://github.com/backtrace-labs/plcrashreporter/releases/download/#{spec.version}/CrashReporter.xcframework.zip",
                        :flatten  => true }
 
   spec.resource_bundle = { 'PLCrashReporter' => 'CrashReporter.xcframework/PrivacyInfo.xcprivacy' }

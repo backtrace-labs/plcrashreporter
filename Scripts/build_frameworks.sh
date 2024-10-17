@@ -3,13 +3,16 @@
 PROJECT_DIR="$(dirname "$0")/../Runs"
 BUILD_PATH="${PROJECT_DIR}/.build"
 WORKFLOW_XC_PATH="${PROJECT_DIR}/frameworks"
+WORKFLOW_XC_PATH_STATIC="${PROJECT_DIR}/frameworks/static"
 DERIVED_DATA_PATH="${PROJECT_DIR}/.derivedData"
 
 rm -rf ${BUILD_PATH}
 rm -rf ${WORKFLOW_XC_PATH}
+rm -rf ${WORKFLOW_XC_PATH_STATIC}
 rm -rf ${DERIVED_DATA_PATH}
 mkdir ${BUILD_PATH}
 mkdir ${WORKFLOW_XC_PATH}
+mkdir ${WORKFLOW_XC_PATH_STATIC}
 mkdir ${DERIVED_DATA_PATH}
 
 xcodebuild archive \
@@ -80,6 +83,15 @@ xcodebuild -create-xcframework \
     -archive ${BUILD_PATH}/CrashReporter-tvOS-lib.xcarchive -framework CrashReporter.framework \
     -archive ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive -framework CrashReporter.framework \
     -output ${WORKFLOW_XC_PATH}/CrashReporter.xcframework
+
+xcodebuild -create-xcframework \
+    -library ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-iOS-Simulator-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-iOS-MacCatalyst-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-macOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-tvOS-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -library ${BUILD_PATH}/CrashReporter-tvOS-Simulator-lib.xcarchive/products/usr/local/lib/libCrashReporter.a -headers ${BUILD_PATH}/CrashReporter-iOS-lib.xcarchive/products/usr/local/lib/include \
+    -output ${WORKFLOW_XC_PATH_STATIC}/CrashReporter.xcframework    
 
 rm -rf ${BUILD_PATH}
 rm -rf ${DERIVED_DATA_PATH}

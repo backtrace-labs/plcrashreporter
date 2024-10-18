@@ -10,17 +10,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-            
+
       - name: Build frameworks
         run: sh Scripts/build_frameworks.sh
         env:
           BACKTRACE_VERSION: ${{ github.ref_name }}
 
       - name: Tar Dylib XCFramework
-        run: tar -cvzf Archive_Dylib_XCFrameworks_${{ github.ref_name }}.tar.gz Runs/frameworks/dylib/
+        run: tar -cvzf Archive_Dylib_XCFrameworks_${{ github.ref_name }}.tar.gz -C Runs/frameworks/dylib/ .
 
       - name: Tar Static XCFramework
-        run: tar -cvzf Archive_Static_XCFrameworks_${{ github.ref_name }}.tar.gz Runs/frameworks/static/
+        run: tar -cvzf Archive_Static_XCFrameworks_${{ github.ref_name }}.tar.gz -C Runs/frameworks/static/ .
 
       - uses: actions/upload-artifact@v4
         with:

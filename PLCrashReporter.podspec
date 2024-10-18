@@ -9,12 +9,16 @@ Pod::Spec.new do |spec|
   spec.license     = { :type => 'MIT', :file => 'LICENSE' }
   spec.authors     = { 'Microsoft' => 'appcentersdk@microsoft.com' }
 
-  spec.source      = { :http => 'https://github.com/backtrace-labs/plcrashreporter/releases/download/1.11.2-rc1/CrashReporter.xcframework.zip', :flatten => false }
+  spec.source      = { :http => 'https://github.com/backtrace-labs/plcrashreporter/releases/download/1.11.2-rc1-6b77fceb/CrashReporter.xcframework.zip', :flatten => false }
 
-  spec.preserve_paths = '*'
-
+  spec.vendored_frameworks = 'CrashReporter.xcframework'
+  spec.preserve_paths = [
+    'CrashReporter.xcframework/*',
+    'CrashReporter.xcframework/*/Headers',
+    'CrashReporter.xcframework/*/Headers/*.h',
+    'CrashReporter.xcframework/*/module.modulemap'
+  ]
   spec.ios.deployment_target    = '11.0'
   spec.osx.deployment_target    = '10.13'
   spec.tvos.deployment_target   = '11.0'
-  spec.vendored_frameworks = 'CrashReporter.xcframework'
 end
